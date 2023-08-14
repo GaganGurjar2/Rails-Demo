@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_14_111722) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_14_125101) do
   create_table "demos", force: :cascade do |t|
     t.string "name"
     t.string "target"
@@ -26,11 +26,27 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_14_111722) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.integer "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_posts_on_product_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.text "intro"
+    t.integer "auther_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["auther_id"], name: "index_profiles_on_auther_id"
   end
 
   create_table "schools", force: :cascade do |t|
@@ -49,4 +65,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_14_111722) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "posts", "products"
+  add_foreign_key "profiles", "authers"
 end
