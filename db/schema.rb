@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_21_092510) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_22_115630) do
   create_table "appointments", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -101,6 +101,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_092510) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "exercises", force: :cascade do |t|
+    t.string "name"
+    t.integer "duration"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "patients", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -171,6 +178,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_092510) do
     t.integer "age"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "description"
+    t.integer "population"
   end
 
   add_foreign_key "companies", "businesses"
