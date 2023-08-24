@@ -22,7 +22,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_23_113655) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "status"
   end
 
   create_table "businesses", force: :cascade do |t|
@@ -35,13 +34,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_23_113655) do
     t.string "name"
     t.string "phone"
     t.string "address"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "comments", force: :cascade do |t|
-    t.string "user"
-    t.string "coment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -186,8 +178,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_23_113655) do
     t.integer "age"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "description"
-    t.integer "population"
   end
 
   add_foreign_key "companies", "businesses"
